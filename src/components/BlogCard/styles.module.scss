@@ -1,0 +1,106 @@
+.blog-card {
+  position: relative;
+  display: flex;
+
+  &:hover {
+    transform: scale(1.01);
+
+    .blog-card-wrapper {
+      filter: brightness(75%);
+    }
+
+    .blog-card__button--read-more,
+    .blog-card__button--delete-button {
+      opacity: 1;
+    }
+  }
+
+  .blog-card-wrapper {
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid #608bc7;
+    background: #fff;
+    transition: transform 0.2s;
+
+    .blog-card {
+      &__title {
+        background: linear-gradient(
+          101deg,
+          #608bc7 0%,
+          #42529f 47.4%,
+          #6756a0 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+      }
+
+      &__content {
+        margin-top: 24px;
+        color: #272727;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.15px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    opacity: 0;
+    font-size: 13px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    height: 24px;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+    transition: opacity 0.15s ease;
+
+    &--read-more {
+      width: fit-content;
+      left: 50%;
+    }
+
+    &--delete-button {
+      width: 100px;
+      background: red;
+      left: 60%;
+    }
+  }
+}
+
+.blog-card-modal {
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    margin-top: 56px;
+    height: fit-content;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid #608bc7;
+    background: #fff;
+    width: 70vw;
+    color: #272727;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.15px;
+  }
+}

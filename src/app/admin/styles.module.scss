@@ -1,0 +1,20 @@
+.blog-container {
+  .create-new-button {
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #7ec5e7;
+    color: #7ec5e7;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    padding: 10px 24px;
+
+    &:hover {
+      color: #608bc7;
+      background: #f7f2fa;
+      box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

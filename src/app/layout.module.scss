@@ -1,0 +1,40 @@
+$top-nav-height: 80px;
+
+.top-nav {
+  display: flex;
+  padding: 0 56px;
+  border-radius: 0 0 0 999px;
+  background: #fff;
+  height: $top-nav-height;
+
+  a {
+    padding: 30px 12px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__sign-in-button {
+    border-radius: 100px;
+    background: linear-gradient(
+      101deg,
+      #608bc7 0%,
+      #42529f 47.4%,
+      #6756a0 100%
+    );
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    padding: 10px 24px;
+  }
+}
+
+:export {
+  top-nav-height: $top-nav-height;
+}
