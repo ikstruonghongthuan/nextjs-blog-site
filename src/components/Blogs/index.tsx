@@ -3,7 +3,7 @@ import BlogCard from "@/components/BlogCard";
 import styles from "./home.module.scss";
 import Blog from "@/types/Blog";
 
-export default async function Home() {
+export default async function Blogs() {
   const dynamicData = await fetch(`http://localhost:3001/blogs`, {
     cache: "no-store",
     method: "GET",

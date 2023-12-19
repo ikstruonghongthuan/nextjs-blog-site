@@ -1,6 +1,7 @@
 .blog-card {
   position: relative;
   display: flex;
+  width: 100%;
 
   &:hover {
     transform: scale(1.01);
@@ -9,18 +10,18 @@
       filter: brightness(75%);
     }
 
-    .blog-card__button--read-more,
-    .blog-card__button--delete-button {
+    .blog-card__button {
       opacity: 1;
     }
   }
 
-  .blog-card-wrapper {
+  &__wrapper {
     padding: 24px;
     border-radius: 20px;
     border: 1px solid #608bc7;
     background: #fff;
     transition: transform 0.2s;
+    width: 100%;
 
     .blog-card {
       &__title {
@@ -54,12 +55,18 @@
     }
   }
 
-  &__button {
+  &__button-group {
+    display: flex;
+    column-gap: 24px;
     position: absolute;
-    opacity: 0;
-    font-size: 13px;
     top: 50%;
     transform: translate(-50%, -50%);
+    left: 50%;
+  }
+
+  &__button {
+    opacity: 0;
+    font-size: 13px;
     color: #fff;
     height: 24px;
     gap: 4px;
@@ -74,13 +81,15 @@
 
     &--read-more {
       width: fit-content;
-      left: 50%;
+    }
+
+    &--update-button {
+      color: black;
+      background: yellow;
     }
 
     &--delete-button {
-      width: 100px;
       background: red;
-      left: 60%;
     }
   }
 }

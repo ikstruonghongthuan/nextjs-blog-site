@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import Link from "next/link";
 
+import StoreProvider from "./StoreProvider";
+
 import "./globals.scss";
 import styles from "./layout.module.scss";
 
@@ -20,16 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lexend.className}>
-        <header className={styles["top-nav"]}>
-          <Link href="/">Home Page</Link>
-          <Link href="/admin">Post Administration</Link>
-          <Link href="/sign-in" className="!p-0 ml-auto">
-            <button className={styles["top-nav__sign-in-button"]}>
-              Sign In
-            </button>
-          </Link>
-        </header>
-        {children}
+        <StoreProvider>
+          <header className={styles["top-nav"]}>
+            <Link href="/">Home Page</Link>
+            <Link href="/admin">Post Administration</Link>
+            <Link href="/sign-in" className="!p-0 ml-auto">
+              <button className={styles["top-nav__sign-in-button"]}>
+                Sign In
+              </button>
+            </Link>
+          </header>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
