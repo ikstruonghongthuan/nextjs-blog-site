@@ -2,7 +2,8 @@
   "users": [
     {
       "email": "admin@mail.com",
-      "password": "admin"
+      "password": "admin",
+      "role": "admin"
     }
   ]
 }

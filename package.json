@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "json-server": "json-server -p 3001 --watch src/mocks/db.json"
+    "json-server": "json-server -p 3001 --watch src/mocks/db.json",
+    "json-server-auth": "json-server-auth -p 3002 --watch src/mocks/users.json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -21,7 +22,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^9.0.4",
-    "swr": "^2.2.4",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

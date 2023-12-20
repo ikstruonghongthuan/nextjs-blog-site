@@ -1,17 +1,23 @@
+import axios from "axios";
+
+import Blog from "@/types/Blog";
+
 import BlogCard from "@/components/BlogCard";
 
 import styles from "./home.module.scss";
-import Blog from "@/types/Blog";
 
 export default async function Home() {
-  const dynamicData = await fetch(`http://localhost:3001/blogs`, {
-    cache: "no-store",
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const blogs = await dynamicData.json();
+  const blogs = await axios
+    .get<Array<Blog>>("http://localhost:3001/blogs", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+    // .then(
+    //   (response) =>
+    //     new Promise((resolve) => setTimeout(() => resolve(response.data), 3000))
+    // );
+    .then((response) => response.data);
 
   return (
     <>

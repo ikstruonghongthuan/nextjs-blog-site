@@ -25,12 +25,12 @@ export default function RootLayout({
         <StoreProvider>
           <header className={styles["top-nav"]}>
             <Link href="/">Home Page</Link>
-            <Link href="/admin">Post Administration</Link>
-            <Link href="/sign-in" className="!p-0 ml-auto">
+            <Link href="/admin">Administration</Link>
+            {/* <Link href="/sign-in" className="!p-0 ml-auto">
               <button className={styles["top-nav__sign-in-button"]}>
                 Sign In
               </button>
-            </Link>
+            </Link> */}
           </header>
           {children}
         </StoreProvider>

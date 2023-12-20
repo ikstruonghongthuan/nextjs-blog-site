@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetchBlogs());
-  }, []);
+  }, [dispatch]);
 
   const onSubmit = () => {
     setIsActionLoading(true);
