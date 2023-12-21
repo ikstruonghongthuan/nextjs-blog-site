@@ -13,11 +13,11 @@ export default async function Home() {
         Accept: "application/json",
       },
     })
-    // .then(
-    //   (response) =>
-    //     new Promise((resolve) => setTimeout(() => resolve(response.data), 3000))
-    // );
-    .then((response) => response.data);
+    .then<Array<Blog>>(
+      (response) =>
+        new Promise((resolve) => setTimeout(() => resolve(response.data), 3000))
+    );
+  // .then((response) => response.data);
 
   return (
     <>

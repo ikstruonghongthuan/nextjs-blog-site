@@ -13,7 +13,11 @@ const fetchBlogs = createAsyncThunk("fetchBlogs", async () => {
         Accept: "application/json",
       },
     })
-    .then((response) => response.data);
+    .then<Array<Blog>>(
+      (response) =>
+        new Promise((resolve) => setTimeout(() => resolve(response.data), 3000))
+    );
+  // .then((response) => response.data);
 
   return blogs;
 });
@@ -23,7 +27,13 @@ const addNewBlog = createAsyncThunk(
   async ({ blog, callback }: { blog: Blog; callback: Function }) => {
     const status = await axios
       .post("http://localhost:3001/blogs", blog)
-      .then((response) => response.status);
+      .then(
+        (response) =>
+          new Promise((resolve) =>
+            setTimeout(() => resolve(response.status), 2000)
+          )
+      );
+    // .then((response) => response.status);
 
     if (status === 201) {
       callback();
@@ -36,7 +46,13 @@ const deleteBlog = createAsyncThunk(
   async ({ id, callback }: { id: UUID; callback: Function }) => {
     const status = await axios
       .delete(`http://localhost:3001/blogs/${id}`)
-      .then((response) => response.status);
+      .then(
+        (response) =>
+          new Promise((resolve) =>
+            setTimeout(() => resolve(response.status), 1000)
+          )
+      );
+    // .then((response) => response.status);
 
     return id;
   }
