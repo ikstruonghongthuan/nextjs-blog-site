@@ -10,25 +10,30 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
+import Blog from "@/types/Blog";
 import BlogCard from "@/components/BlogCard";
+import Loading from "../loading";
+
+import { addNewBlog, fetchBlogs } from "@/slices/blog";
+import { useAppDispatch, useAppSelector } from "@/lib/hook";
+import blogsMock from "@/mocks/db.json";
 
 import homeStyles from "../home.module.scss";
 import styles from "./styles.module.scss";
-import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { addNewBlog, fetchBlogs } from "@/slices/blog";
-import Blog from "@/types/Blog";
-import Loading from "../loading";
 
 export default function Home() {
   const [isModalOpened, setIsModalOpen] = useState(false);
   const [isActionLoading, setIsActionLoading] = useState(false);
 
   const blogSelector = useAppSelector((state) => state.blog);
-  const { blogs, isLoading } = blogSelector;
+  // const { blogs, isLoading } = blogSelector;
   const dispatch = useAppDispatch();
 
+  const blogs = blogsMock.blogs;
+  const isLoading = false;
+
   useEffect(() => {
-    dispatch(fetchBlogs());
+    // dispatch(fetchBlogs());
   }, [dispatch]);
 
   const onSubmit = () => {
@@ -65,7 +70,7 @@ export default function Home() {
         {isLoading ? (
           <Loading />
         ) : (
-          blogs.map((blog: Blog) => (
+          blogs.map((blog: any) => (
             <BlogCard key={blog.id} blog={blog} isAdminMode />
           ))
         )}
