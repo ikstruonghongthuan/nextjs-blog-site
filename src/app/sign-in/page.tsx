@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -6,8 +7,37 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
 import layout from "../layout.module.scss";
+import { authenticate } from "@/lib/action";
 
 const SignIn = () => {
+  const [error, setError] = React.useState("");
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+
+    authenticate(
+      (document.getElementById("email") as HTMLInputElement).value,
+      (document.getElementById("password") as HTMLInputElement).value
+    );
+
+    // const result = await signIn("credentials", {
+    //   email: (document.getElementById("email") as HTMLInputElement).value,
+    //   password: (document.getElementById("password") as HTMLInputElement).value,
+    //   callbackUrl: callbackUrl ?? "/auth",
+    //   redirect: false,
+    // });
+
+    // if (result?.error) {
+    //   setError(result.error);
+    // }
+
+    // if (result?.ok) {
+    //   router.push(callbackUrl);
+    // }
+  };
+
   return (
     <Container
       component="main"
@@ -33,7 +63,7 @@ const SignIn = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
@@ -62,6 +92,7 @@ const SignIn = () => {
           >
             Sign In
           </Button>
+          <p className="text-red-500">{error}</p>
         </Box>
       </Box>
     </Container>
